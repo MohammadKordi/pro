@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مواقع سياحية في الأردن</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            margin: 10px 0;
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .card button:hover {
+            background-color: #45a049;
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+
+        .popup img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .popup h2 {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .popup p {
+            line-height: 1.8;
+            text-align: justify;
+            font-size: 16px;
+        }
+
+        .popup button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .popup button:hover {
+            background-color: #45a049;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        /* تذييل الصفحة (Footer) */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            margin-top: 2rem;
+            border-top: 3px solid #4CAF50;
+        }
+
+        .footer span {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        .footer p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>مواقع سياحية في الأردن</h1>
+    </header>
+
+    <div class="container">
+        <!-- البترا -->
+        <div class="card">
+            <img src="img/petra.jpg" alt="البترا">
+            <h2>البترا</h2>
+            <p>البترا، المعروفة بـ(المدينة الوردية)، هي أعجوبة أثرية وتاريخية تقع جنوب الأردن، وتُعد واحدة من أبرز
+                المواقع السياحية في العالم، إذ صنفت ضمن عجائب الدنيا السبع الجديدة. تأسست البترا في القرن الرابع قبل
+                الميلاد لتكون عاصمة لمملكة الأنباط، وهي مدينة محفورة بالكامل في الصخور الرملية الوردية</p>
+            <button onclick="openPopup('petra')">اقرأ المزيد</button>
+        </div>
+
+        <!-- البحر الميت -->
+        <div class="card">
+            <img src="img/pahr-met.jpg" alt="البحر الميت">
+            <h2>البحر الميت</h2>
+            <p>البحر الميت هو أحد أكثر الوجهات الطبيعية والتاريخية إثارة في العالم، ويُعد واحدًا من أبرز المعالم
+                السياحية في الأردن. يتميز بموقعه الفريد باعتباره أخفض نقطة على سطح الأرض، حيث يقع على عمق حوالي 430
+                مترًا تحت مستوى سطح البحر.</p>
+            <button onclick="openPopup('deadsea')">اقرأ المزيد</button>
+        </div>
+
+        <!-- حمامات معين -->
+        <div class="card">
+            <img src="img/hamamat-maen.jpg" alt="حمامات معين">
+            <h2>حمامات معين</h2>
+            <p>حمامات معين تعد من أبرز الوجهات السياحية والعلاجية في الأردن، حيث تتميز بجمالها الطبيعي وتاريخها الطويل.
+                تقع الحمامات في وادي معين، على بعد حوالي 58 كم جنوب غرب العاصمة عمان، وعلى مقربة من البحر الميت. تعد
+                المنطقة مقصدًا مثاليًا للباحثين عن الاسترخاء والعلاج الطبيعي وسط بيئة طبيعية ساحرة.</p>
+            <button onclick="openPopup('maain')">اقرأ المزيد</button>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+    <div class="popup" id="popup">
+        <h2 id="popupTitle"></h2>
+        <img id="popupImage" src="" alt="">
+        <p id="popupText"></p>
+        <button onclick="closePopup()">إغلاق</button>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 جميع الحقوق محفوظة </p>
+        <p>تم التصميم بواسطة <span>محمد الكردي</span></p>
+    </footer>
+
+    <script>
+        const data = {
+            petra: {
+                title: "البترا",
+                image: "img/petra.jpg",
+                text: "البترا، المعروفة بـ(المدينة الوردية)، هي أعجوبة أثرية وتاريخية تقع جنوب الأردن، وتُعد واحدة من أبرز المواقع السياحية في العالم، إذ صنفت ضمن عجائب الدنيا السبع الجديدة. تأسست البترا في القرن الرابع قبل الميلاد لتكون عاصمة لمملكة الأنباط، وهي مدينة محفورة بالكامل في الصخور الرملية الوردية، مما أكسبها لقبها الفريد. كانت البترا مركزًا تجاريًا حيويًا في العالم القديم، حيث ربطت بين شبه الجزيرة العربية والبحر المتوسط عبر طرق التجارة.\n\n" +
+                    "تتميز البترا بمعالمها المعمارية الرائعة التي تظهر براعة الأنباط في فنون النحت والبناء، وأبرزها الخزنة، وهي الواجهة الشهيرة المنحوتة في الصخر بارتفاع يصل إلى 40 مترًا، وتُعتقد أنها كانت مقبرة ملكية. كما تضم البترا معالم مذهلة أخرى مثل الدير، وهو مبنى ضخم يطل على مشهد بانورامي خلاب، وشارع الأعمدة الذي يعكس الطابع الروماني في تصميمه، إضافة إلى المسرح النبطي، الذي يتسع لآلاف الأشخاص، ويُعد شاهدًا على الحياة الثقافية والاجتماعية للمدينة القديمة.\n\n" +
+                    "إلى جانب معمارها الفريد، تتميز البترا بتضاريسها الجبلية ومساراتها المدهشة، مثل السيق، وهو ممر ضيق يبلغ طوله حوالي 1.2 كيلومتر، ويؤدي إلى المدينة. تجربة المشي عبر السيق هي جزء لا يتجزأ من زيارة البترا، حيث يستمتع الزائرون بمشاهدة الألوان المتدرجة للصخور والنقوش القديمة.\n\n" +
+                    "تُعد البترا اليوم رمزًا وطنيًا في الأردن وموقعًا للتراث العالمي وفق تصنيف منظمة اليونسكو منذ عام 1985. تجذب المدينة آلاف السياح سنويًا، ليس فقط لجمالها التاريخي، ولكن أيضًا لما تقدمه من تجارب سياحية فريدة تشمل الاستمتاع بالمشاهد الطبيعية، وركوب الجمال، وحضور عروض (البترا ليلاً)، حيث تضاء المدينة بالشموع لتخلق أجواء ساحرة.\n\n" +
+                    "ورغم جمالها وتاريخها العريق، تواجه البترا تحديات بيئية مثل التآكل بفعل العوامل الطبيعية، مما يجعل الحفاظ عليها أولوية وطنية ودولية. زيارة البترا ليست مجرد رحلة إلى الماضي، بل هي تجربة تجمع بين التاريخ، والجمال الطبيعي، وروح المغامرة، وتظل من أروع المعالم الثقافية في العالم."
+            },
+            deadsea: {
+                title: "البحر الميت",
+                image: "img/pahr-met.jpg",
+                text: "البحر الميت، المعروف بكونه أخفض نقطة على سطح الأرض بارتفاع حوالي 430 مترًا تحت مستوى سطح البحر، هو أعجوبة طبيعية فريدة تقع بين الأردن وفلسطين. يُعد هذا البحر بحيرة مالحة مغلقة ذات ملوحة عالية جدًا تصل إلى حوالي 30%، مما يجعله أحد أكثر المسطحات المائية ملوحة في العالم، ويمنح زواره تجربة الطفو الفريدة على سطحه دون مجهود. تُعرف مياهه وطينه الأسود بخصائصهما العلاجية الغنية بالمعادن، مثل المغنيسيوم والبوتاسيوم والكالسيوم، التي تُستخدم لعلاج مشكلات البشرة مثل الصدفية والإكزيما، وللاسترخاء وتجديد النشاط. المنطقة المحيطة بالبحر الميت تتميز بجمالها الطبيعي، حيث تحيطه الجبال والصخور بألوانها الدافئة التي تضيف لمسة ساحرة، خاصة عند غروب الشمس الذي يعكس ألوانًا خلابة على سطح الماء. بالإضافة إلى كونه وجهة علاجية، يضم البحر الميت منتجعات فاخرة ومراكز علاجية عالمية تقدم جلسات عناية بالبشرة باستخدام أملاحه وطينه. رغم سحره، يواجه البحر تحديات بيئية خطيرة تتمثل في انخفاض مستواه بشكل مستمر بسبب قلة المياه المتدفقة إليه من نهر الأردن والتغيرات المناخية، مما يهدد استمراريته كموقع طبيعي فريد. يمثل البحر الميت تجربة سياحية وعلاجية وثقافية متكاملة، حيث يجمع بين الترفيه والاسترخاء والتواصل مع الطبيعة في أروع صورها."
+            },
+            maain: {
+                title: "حمامات معين",
+                image: "img/hamamat-maen.jpg",
+                text: "حمامات معين، الواقعة في وادي معين على بعد 20 كم شرق البحر الميت وحوالي 58 كم جنوب غرب عمان، تُعد من أبرز الوجهات العلاجية والسياحية في الأردن. تشتهر المنطقة بينابيعها الطبيعية التي تتدفق بمياه ساخنة تصل حرارتها إلى 63 درجة مئوية، غنية بالكبريت والمعادن مثل المغنيسيوم والبوتاسيوم والكالسيوم، مما يمنحها خصائص علاجية فريدة تُستخدم في علاج أمراض الجلد كالصدفية والإكزيما، وأمراض الجهاز التنفسي كالحساسية والربو، إضافة إلى تخفيف آلام المفاصل والروماتيزم. يحيط بالحمامات وادٍ ساحر ذو طبيعة خلابة، حيث تتواجد المنتجعات والفنادق التي تقدم خدمات السبا والعلاج بالطين المعدني وبرك السباحة المخصصة للاستجمام، ما يجعلها وجهة فريدة تجمع بين الراحة والعلاج وسط أجواء طبيعية مدهشة، مع تاريخ يمتد إلى العصر الروماني الذي استخدمها كمنتجع صحي."
+            }
+        };
+
+        function openPopup(id) {
+            const popup = document.getElementById("popup");
+            const overlay = document.getElementById("overlay");
+
+            document.getElementById("popupTitle").innerText = data[id].title;
+            document.getElementById("popupImage").src = data[id].image;
+            document.getElementById("popupText").innerText = data[id].text;
+
+            popup.style.display = "block";
+            overlay.style.display = "block";
+        }
+
+        function closePopup() {
+            const popup = document.getElementById("popup");
+            const overlay = document.getElementById("overlay");
+
+            popup.style.display = "none";
+            overlay.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
